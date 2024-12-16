@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New User - Dolphin CRM</title>
+    <link href="NewUser.css" type="text/css" rel="stylesheet" />
+    <script src="NewUser.js"></script>
+</head>
+<body>
+    <div class="header">
+        <h1>Dolphin CRM</h1>
+    </div>
+    <div class="sidebar">
+        <a href="home.php" class="active">Home</a>
+        <a href="create_contact.php">New Contact</a>
+        <a href="users.php">Users</a>
+        <hr>
+        <a href="logout.php">Logout</a>
+    </div>
+
+    <div class="content">
+        <h1>New User</h1>
+        <div class="new-user-container">
+            <form id="addUserForm" method="POST" action="NewUser.php">
+                <div class="form-row">
+                    <div>
+                        <label for="firstname">First Name</label>
+                        <input type="text" id="firstname" name="firstname" placeholder="Jane" required>
+                    </div>
+                    <div>
+                        <label for="lastname">Last Name</label>
+                        <input type="text" id="lastname" name="lastname" placeholder="Doe" required>
+                    </div>
+                    
+                </div>
+                <div class="form-row">
+                    <div>
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="something@example.com" required>
+    
+                    </div>
+                    <div>
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Password" required>
+                    </div>
+                
+                </div>
+                
+    
+                <label for="role">Role</label>
+                <select id="role" name="role" required>
+                    <option value="Member">Member</option>
+                    <option value="Admin">Admin</option>
+                </select>
+                
+                <button type="submit" class="save-button">Save</button>
+                
+            </form>
+        </div>
+        
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Contact</title>
+    <link rel="stylesheet" href="view_contact.css">
+    <script src="contact_project1.js" defer></script> <!-- Link to the external JavaScript file -->
+</head>
+<body>
+    <!-- Top Header (Dark color) -->
+    <div class="top-header">
+        <h2>Dolphin CRM</h2>
+    </div>
+
+    <!-- Sidebar Navigation (White) -->
+    <div class="sidebar">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="create_contact.html">Create New Contact</a>
+        <a href="view_contacts.html">View All Contacts</a>
+        <a href="notes.html">Notes</a>
+        <a href="logout.php">Logout</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="contact-details">
+            <!-- Contact Header -->
+            <div class="contact-info-header">
+                <p><strong id="contact-name"></strong></p>
+                <div class="actions-header">
+                    <button class="assign-btn" onclick="assignToMe()">Assign to Me</button>
+                    <button class="switch-btn" onclick="toggleType()">Switch Type</button>
+                </div>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="contact-box">
+                <div class="contact-info-row">
+                    <p><strong>Email:</strong> <span id="contact-email"></span></p>
+                    <p><strong>Telephone:</strong> <span id="contact-telephone"></span></p>
+                </div>
+                <div class="contact-info-row">
+                    <p><strong>Company:</strong> <span id="contact-company"></span></p>
+                    <p><strong>Assigned To:</strong> <span id="contact-assigned-to"></span></p>
+                </div>
+            </div>
+
+            <!-- Notes Box -->
+            <div class="notes-box">
+                <h4>Notes</h4>
+                <div id="notes-container">
+                    <!-- Notes will be dynamically loaded here -->
+                </div>
+            </div>
+
+            <!-- Add a Note Section -->
+            <div class="add-note-section">
+                <h3>Add a Note</h3>
+                <form id="add-note-form">
+                    <textarea name="comment" id="note-input" placeholder="Enter details here..." required></textarea>
+                    <button type="submit">Add Note</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

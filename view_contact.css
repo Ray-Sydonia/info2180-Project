@@ -1,0 +1,174 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and Layout */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Top Header (Dark color) */
+.top-header {
+    background-color: #333; /* Dark header */
+    color: white;
+    padding: 10px 20px;
+    text-align: left;
+}
+
+.top-header h2 {
+    font-size: 1.2em; /* Smaller text */
+    margin: 0;
+}
+
+/* Sidebar Styling (White) */
+.sidebar {
+    width: 200px; /* Smaller sidebar */
+    background-color: white; /* White sidebar */
+    color: #333;
+    height: calc(100vh - 40px); /* Full height minus the header */
+    position: fixed;
+    top: 40px; /* Below the header */
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    font-size: 0.9em; /* Smaller font size */
+}
+
+.sidebar a {
+    color: #333;
+    text-decoration: none;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Main Content Styling */
+.main-content {
+    margin-left: 200px;
+    padding: 20px;
+    width: calc(100% - 240px); 
+    margin-top: 40px; 
+}
+
+/* Contact Details Section */
+.contact-details {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact-info-header p {
+    font-size: 1.2em; 
+    font-weight: bold;
+}
+
+.actions-header {
+    display: flex;
+    gap: 10px;
+}
+
+.assign-btn, .switch-btn {
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em; 
+}
+
+.assign-btn {
+    background-color: limegreen;
+    color: white;
+}
+
+.switch-btn {
+    background-color: yellow;
+    color: black;
+}
+
+.contact-box {
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.contact-info-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+/* Notes Section */
+.notes-box {
+    margin-top: 30px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.notes-box h4 {
+    margin-bottom: 15px;
+    font-size: 1.1em; /* Slightly smaller */
+}
+
+.note {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.add-note-section {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.add-note-section h3 {
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-size: 1.1em; 
+}
+
+.add-note-section textarea {
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.add-note-section button {
+    background-color: #2ecc71;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em; /* Smaller button text */
+}
+
+.add-note-section button:hover {
+    background-color: #27ae60;
+}
