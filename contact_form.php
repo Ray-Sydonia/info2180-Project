@@ -1,6 +1,6 @@
 <?php
 include 'utils/function.php';
-$conn = getConn();
+
 
 // Get the form inputs
 $stmt = $conn->prepare("SELECT id, CONCAT(firstname, ' ', lastname) AS fullName FROM users");

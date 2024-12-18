@@ -1,6 +1,6 @@
 <?php
 include 'utils/function.php';
-$conn = getConn();
+
 
 $filter = filter_input(INPUT_GET, 'filter', FILTER_SANITIZE_FULL_SPECIAL_CHARS) ?? 'all';
 

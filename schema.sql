@@ -81,34 +81,3 @@ CREATE TABLE `notes`
     `created_at` DATETIME     NOT NULL,
     PRIMARY KEY (`id`)
 ) ENGINE = MyISAM AUTO_INCREMENT = 4080 DEFAULT CHARSET = utf8mb4;
-
-
-
--- Insert test users
-INSERT INTO `users` (firstname, lastname, password, email, role, created_at)
-VALUES 
-('Alice', 'Smith', MD5('password1'), 'alice.smith@example.com', 'Member', NOW()),
-('Bob', 'Johnson', MD5('password2'), 'bob.johnson@example.com', 'Member', NOW()),
-('Charlie', 'Brown', MD5('password3'), 'charlie.brown@example.com', 'Manager', NOW()),
-('Diana', 'Prince', MD5('password4'), 'diana.prince@example.com', 'Admin', NOW()),
-('Eve', 'Taylor', MD5('password5'), 'eve.taylor@example.com', 'Member', NOW());
-
--- Insert test contacts
-INSERT INTO `contacts` (title, firstname, lastname, email, telephone, company, type, assigned_to, created_by, created_at, updated_at)
-VALUES
-('Mr.', 'John', 'Doe', 'john.doe@example.com', '123-456-7890', 'Tech Corp', 'Client', 1, 2, NOW(), NOW()),
-('Ms.', 'Jane', 'Roe', 'jane.roe@example.com', '234-567-8901', 'Business Inc.', 'Prospect', 2, 3, NOW(), NOW()),
-('Dr.', 'Emily', 'White', 'emily.white@example.com', '345-678-9012', 'Medical Group', 'Client', 3, 1, NOW(), NOW()),
-('Mr.', 'James', 'Bond', 'james.bond@example.com', '456-789-0123', 'Spy Agency', 'Partner', 4, 1, NOW(), NOW()),
-('Mrs.', 'Anna', 'Smith', 'anna.smith@example.com', '567-890-1234', 'Fashion Co.', 'Lead', 5, 2, NOW(), NOW());
-
-
-
--- Insert test notes
-INSERT INTO `notes` (contact_id, comment, created_by, created_at)
-VALUES
-(1, 'Follow-up call scheduled for next week.', 2, NOW()),
-(2, 'Provided a quote for the project.', 3, NOW()),
-(3, 'Discussed partnership opportunities.', 1, NOW()),
-(4, 'Meeting scheduled to discuss terms.', 4, NOW()),
-(5, 'Sent introductory email and brochure.', 2, NOW());

@@ -1,7 +1,6 @@
 <?php
 include 'utils/function.php';
 session_start();
-$conn = getConn();
 
 // Fetch the contact name from the GET parameter
 $contactName = filter_input(INPUT_GET, 'contactName', FILTER_SANITIZE_FULL_SPECIAL_CHARS);

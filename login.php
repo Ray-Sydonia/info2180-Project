@@ -1,15 +1,5 @@
-<?php
-include 'utils/function.php';
-
-
-$conn = getConn();
-
-$sql = $conn->prepare("SELECT * FROM users");
-$sql->execute();
-$users = $sql->fetchAll(PDO::FETCH_ASSOC);
-
-(!$users) && include_once 'login_initialUsers.php';
-?>
+<!--email:admin@project2.com
+password: password123 -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -26,8 +16,12 @@ $users = $sql->fetchAll(PDO::FETCH_ASSOC);
     <script src="index.js" charset="utf-8"></script>
 </head>
 <body id="login">
+        
 <header>
     <h1>Login</h1>
+    <?php if (isset($_GET['error'])) { ?>
+     		<p class="error"><?php echo $_GET['error']; ?></>
+     	<?php } ?>
 </header>
 
 <main>

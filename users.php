@@ -1,80 +1,38 @@
 <?php
-// Database credentials
-$host = 'localhost';       // Your database host
-$username = 'pro_user';        // Your database username
-$password = 'password123';            // Your database password
-$dbname = 'dolphin_crm';   // Your database name
+include 'utils/function.php';
 
-try {
-    // Create a database connection
-    $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Prepare the SQL SELECT statement
-    $sql = "SELECT id, CONCAT(firstname, ' ', lastname) AS name, email, role, created_at FROM Users";
-    $stmt = $conn->prepare($sql);
-
-    // Execute the statement
-    $stmt->execute();
-
-    // Fetch all users
-    $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
-} catch (PDOException $e) {
-    echo "Error: " . $e->getMessage();
-    exit;
-}
+$stmt = $conn->prepare("SELECT CONCAT(users.firstname, ' ', users.lastname) AS fullName, users.email, users.role, users.created_at FROM users");
+$stmt->execute();
+$users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Users</title>
-    <link href="users.css" type="text/css" rel="stylesheet" />
-</head>
-<body>
-  <div class="container">
-    <div class="header">
-      <h1>Dolphin CRM</h1>
+<div class="info">
+    <div class="viewHead">
+        <h2>Users</h2>
+        <button><a class="no_refresh" href="users_new.php"><img src="img/add_black_24dp.svg" alt="">Add User</a></button>
     </div>
-    <div class="sidebar">
-        <a href="home.php" class="active">Home</a>
-        <a href="new_contact.php">New Contact</a>
-        <a href="users.php">Users</a>
-        <hr>
-        <a href="logout.php">Logout</a>
-    </div>
-    <div class="content">
-    <div class="header-row">
-      <h2>Users</h2>
-      <a href="NewUser.html" class="add-button">+ Add User</a>
-    </div>
-    <div class="table-container">
-        <table class="table">
+    <div class="table">
+        <table id="user_table">
             <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Role</th>
-                    <th>Created At</th>
-                </tr>
+            <tr>
+                <th scope="col" >Name</th>
+                <th scope="col" >Email</th>
+                <th scope="col" >Role</th>
+                <th scope="col" >Created</th>
+            </tr>
             </thead>
             <tbody>
-                <?php foreach ($users as $user): ?>
-                    <tr>
-                        
-                        <td><?php echo htmlspecialchars($user['name']); ?></td>
-                        <td><?php echo htmlspecialchars($user['email']); ?></td>
-                        <td><?php echo htmlspecialchars($user['role']); ?></td>
-                        <td><?php echo htmlspecialchars($user['created_at']); ?></td>
-                    </tr>
-                <?php endforeach; ?>
+            <?php foreach ($users as $user): ?>
+                <tr>
+                    <th scope="row"><?= $user['fullName'] ?></th>
+                    <td><?= $user['email'] ?></td>
+                    <td><?= $user['role'] ?></td>
+                    <td><?= date('Y-m-d h:i', strtotime($user['created_at'])) ?></td>
+                </tr>
+            <?php endforeach; ?>
             </tbody>
         </table>
     </div>
-       
-    </div>
-  </div>
-</body>
-</html>
+</div>
+
